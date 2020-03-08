@@ -1,0 +1,39 @@
+{%extends "main/header.html"%}
+
+
+
+{% block content%}
+ {% for message in messages %}
+
+            <div class="alert alert-success" style="margin-top: 2%;margin-bottom: 2%">
+                <a class="close" href=" " data-dismiss="alert">×</a>
+
+                        {{ message }}
+            </div>
+ {% endfor %}
+
+<div class="row">
+	    <form action="/postsignin/" method="post" class="col s12">
+	    	{%csrf_token%}
+		      <div class="row">
+		        <div class="input-field col s12">
+		          <input name="email" type="email" class="validate">
+		          <label for="email">Email</label>
+		        </div>
+		      </div>
+		      <div class="row">
+		        <div class="input-field col s12">
+		          <input name="password" type="password" class="validate">
+		          <label for="password">Password</label>
+		        </div>
+		      </div>
+		      <button type="submit" class="btn" style="background-color: black ;color: white">Login</button>
+	    </form>
+  </div>
+	<p>
+	<a href="reset"><strong>Forgot Password</strong></a>
+	<p>
+	If you don't have an account  <a href="register"><strong>Register</strong></a>  here.
+
+
+{%endblock%}
